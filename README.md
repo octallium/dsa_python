@@ -16,7 +16,10 @@ Collection of various Data Structures and Algorithms in Python
 4. ```bash
    cd poetry install
    ```
-5. Testing
+5. ```bash
+   cd poetry shell
+   ```
+6. Testing
    
    ```bash
    pytest -vv
