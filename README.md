@@ -17,7 +17,7 @@ Collection of various Data Structures and Algorithms in Python
    cd poetry install
    ```
 5. ```bash
-   cd poetry shell
+   poetry shell
    ```
 6. Testing
    
