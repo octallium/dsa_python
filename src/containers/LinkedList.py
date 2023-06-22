@@ -230,6 +230,48 @@ class LinkedList(Generic[T]):
             ll.insert_head(node.data)
         return ll
 
+    def pop(self) -> T | None:
+        """Removes the last node and returns the data"""
+
+        if not self.__first:
+            raise Exception("Linked List Underflow")
+
+        el: Node[T] | None = None
+
+        if len(self) == 1:
+            el = self.__first
+            self.__first = self.__last = None
+            return el.data
+
+        current = self.__first
+
+        while True:
+            if current.next == self.__last:
+                el = current.next
+                self.__last = current
+                current.next = None
+                break
+            if current.next:
+                current = current.next
+
+        return el.data if el else None
+
+    def peek(self, pos: int) -> T | None:
+        """Returns data from the given node position"""
+
+        if pos < 0:
+            raise Exception("Linked List Underflow")
+        if pos > len(self) - 1:
+            raise Exception("Linked List Overflow")
+
+        current = self.__first
+
+        for _ in range(pos):
+            if current and current.next:
+                current = current.next
+
+        return current.data if current else None
+
     # Functional API
     # ------------------------------------------------------------------
 
